@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = 'UTF-8'>
+    <title>Program</title>
+
+
+    <!--Stylesheets-->
+    <link rel = 'stylesheet' type = 'text/css' href = './css/style.css' />
+    <link rel = 'stylesheet' type = 'text/css' href = './css/trash.css' />
+  </head>
+
+  <body id = 'body'>
+
+    <div id = 'titleBar'>
+      <button class = 'buttons' id = 'closeButton'>X</button>
+      <button class = 'buttons' id = 'minimizeButton'>_</button>
+    </div>
+    <div id = 'controlBar'>
+      <button class = 'icon-trash-empty' id = 'clearCalenderButton'></button>
+      <span id = 'areYouSure' style = "display: none;">Clear all?</span>
+      <button class = 'icon-floppy' id = 'saveCalenderButton'></button>
+      <button class = 'icon-calendar' id = 'lowerCalenderButton'></button>
+      <button class = 'buttons' id = 'collapseButton'>-</button>
+      <button class = 'buttons' id = 'expandButton'>+</button>
+      <button class = 'buttons' id = 'backButton'><</button>
+      <button class = 'buttons' id = 'forwardButton'>></button>
+      <input id = 'searchBar' type = 'text' placeholder = 'Url' style = 'display: none;'></input>
+    </div>
+    <webview id = 'internetWindow' style = 'display: none;' src="https://google.com" plugins></webview>
+    <div id = 'calenderWrapper'>
+      <div id = 'calenderFrame'>
+
+      </div>
+    </div>
+
+
+
+  </body>
+
+  <!--Scripts-->
+  <Script src = 'calenderManager.js'></script>
+  <script>
+
+        var ipc = require('electron').ipcRenderer;
+        var closeButton = document.getElementById('closeButton');
+        var minimizeButton = document.getElementById('minimizeButton');
+        var saveCalenderButton = document.getElementById('saveCalenderButton');
+        var pageArray = [];
+
+        closeButton.addEventListener('click', function() {
+          ipc.once('actionReply', function() {
+            processResponse(response);
+          })
+          ipc.send('closeAction', 'some Data');
+        });
+
+        minimizeButton.addEventListener('click', function() {
+          ipc.once('actionReply', function() {
+            processResponse(response);
+          })
+          ipc.send('minimizeAction', 'minimize Data');
+        });
+
+        saveCalenderButton.addEventListener('click', function() {
+          ipc.once('actionReply', function() {
+            processResponse(response);
+          })
+          ipc.send('saveAction', 'saveData');
+        });
+
+        clearCalenderButton.addEventListener('click', function() {
+          ipc.once('actionReply', function() {
+            processResponse(response);
+          })
+          ipc.send('clearAction', 'clearData');
+        });
+
+        collapseButton.addEventListener('click', function () {
+          ipc.once('actionReply', function() {
+            processResponse(response);
+          })
+          ipc.send('collapseAction', 'collapseData');
+        });
+
+        expandButton.addEventListener('click', function() {
+          ipc.once('actionReply', function () {
+            processResponse('response');
+          })
+          ipc.send('expandAction', 'expandData');
+        });
+
+        lowerCalenderButton.addEventListener('click', function() {
+          ipc.once('actionReply', function () {
+            processResponse('response');
+          })
+          var calenderFrame = document.getElementById('calenderWrapper');
+          ipc.send('lowerCalenderAction', calenderFrame);
+        });
+
+        searchBar.addEventListener('keydown', function(event) {
+          ipc.once('actionReply', function() {
+            processResponse('response');
+          })
+          if (event.key === 'Enter') {
+            pageArray.push(searchBar.value);
+            if (pageArray.length < 3) {
+              pageArray.shift();
+            }
+            ipc.send('searchAction', 'searchData');
+          }
+        });
+
+
+        backButton.addEventListener('click', function() {
+
+          internetWindow.src = 'http://' + pageArray[0];
+
+        })
+
+        forwardButton.addEventListener('click', function() {
+
+          internetWindow.src = 'http://' + pageArray[1];
+
+        })
+
+
+  </script>
+</html>

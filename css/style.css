@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  font: Arial;
+}
+
+body {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.buttons {
+  margin: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+button.buttons:focus,button.buttons:active:focus,button.buttons.active:focus,
+button.buttons.focus,button.buttons:active.focus,button.buttons.active.focus {
+    outline: none !important;
+}
+
+#calenderWrapper {
+  position: relative;
+  width: 617px;
+  height: 170px;
+  border-top: 1px solid grey;
+  overflow: auto;
+  overflow-y: hidden;
+}
+
+
+#calenderFrame {
+  -margin: auto;
+  background-color: #CACFD2;
+  height: 160px;
+  width: 5000px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#internetWindow {
+  height: 669px;
+  width: 100%;
+}
+
+#closeButton {
+  -webkit-app-region: no-drag;
+  -opacity: .3;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  padding-right: 15px;
+  color: #636262;
+  float: right;
+  font: Arial;
+  font-size: 25px;
+}
+
+#minimizeButton {
+  -webkit-app-region: no-drag;
+  background-color: transparent;
+  -opacity: .5;
+  border: none;
+  padding-bottom: 3px;
+  text-align: center;
+  color: #636262;
+  float: right;
+  font: Arial;
+  font-size: 20px;
+}
+
+#titleBar {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  background-color: transparent;
+  float: right;
+  z-index: -999;
+  width: 30%;
+
+}
+
+#controlBar {
+  white-space: nowrap;
+  float: left;
+  width: 400px;
+  height: 20px;
+  display: inline-block;
+  -webkit-app-region: drag;
+}
+
+#saveCalenderButton {
+  -webkit-app-region: no-drag;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: transparent;
+  border: none;
+  color: #636262;
+  float: left;
+  font-size: 20px;
+  -opacity: .7;
+  padding-top: 1px;
+  margin-right: -10px;
+  margin-top: 2px;
+}
+
+#clearCalenderButton {
+  -webkit-app-region: no-drag;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: transparent;
+  border: none;
+  color: #636262;
+  -opacity: .5;
+  font-size: 20px;
+  margin-top: 2px;
+  margin-right: -10px;
+  float: left;
+}
+
+#searchBar {
+  margin-top: 2px;
+  color: #636262;
+  padding-left: 10px;
+  -webkit-app-region: no-drag;
+  width: 450px;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+
+#forwardButton {
+  -webkit-app-region: no-drag;
+  background-color: transparent;
+  -opacity: .5;
+  border: none;
+  padding-bottom: 3px;
+  text-align: center;
+  color: #636262;
+  font: Arial;
+  font-size: 20px;
+}
+
+#backButton {
+  -webkit-app-region: no-drag;
+  background-color: transparent;
+  -opacity: .5;
+  border: none;
+  padding-bottom: 3px;
+  text-align: center;
+  color: #636262;
+  font: Arial;
+  font-size: 20px;
+}
+
+#dragBar {
+  -webkit-app-region: drag;
+  background-color: grey;
+  height: 20px;
+  width: 110px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  float: left;
+}
+
+#areYouSure {
+  float: left;
+  display: inline-block;
+  max-width: 0;
+  height: 18px;
+  overflow: hidden;
+  transition:all 1s ease-in;
+  text-align: center;
+  color: #626262;
+  margin-top: 5px;
+  margin-right: -5px;
+  -background-color: #DEDEDE;
+  border-radius: 5px;
+
+}
+
+
+#expandButton {
+  -webkit-app-region: no-drag;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border: none;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  -opacity: .5;
+  color: #636262;
+  float: left;
+  text-align: center;
+  background-color: transparent;
+}
+
+#collapseButton {
+  -webkit-app-region: no-drag;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border: none;
+  padding-left: 15px;
+  padding-bottom: 7px;
+  margin-top: -2px;
+  font-size: 20px;
+  -opacity: .5;
+  color: #636262;
+  float: left;
+  text-align: center;
+  background-color: transparent;
+}
+
+#lowerCalenderButton {
+  -webkit-app-region: no-drag;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border: none;
+  -padding-left: 15px;
+  font-size: 20px;
+  -opacity: .5;
+  color: #636262;
+  float: left;
+  text-align: center;
+  background-color: transparent;
+  margin-right: -10px;
+}
+
+#forwardButton:hover {
+  color: black;
+}
+
+#backButton:hover {
+  color: black;
+}
+
+#saveCalenderButton:hover {
+  color: orange;
+}
+
+#clearCalenderButton:hover {
+  color: red;
+}
+
+#expandButton:hover {
+  color: black;
+}
+
+#collapseButton:hover {
+  color: black;
+}
+
+#closeButton:hover {
+  color: black;
+}
+
+#minimizeButton:hover {
+  color: black;
+}
+
+#lowerCalenderButton:hover {
+  color: black;
+}
+
+#clearCalenderButton:target {
+  max-width: 100%;
+
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: .9; }
+}

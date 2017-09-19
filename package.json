@@ -1,0 +1,17 @@
+{
+  "name": "calender",
+  "version": "0.0.0",
+  "description": "calender application to help remind me of appointments",
+  "main": "windowManager.js",
+  "author": "JFschmiechen.github.io",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.7.5",
+    "electron-positioner": "^3.0.0"
+  },
+  "devDependencies": {
+    "electron": "^1.7.5",
+    "electron-packager": "^9.0.1",
+    "dateformat":  "2.0.0"
+  }
+}
